@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<div th:fragment="modal">
+<div class="modal fade" id="basicModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body" style="height:400px;">
+
+<form role="form" action="#"  th:object="${newUser}" th:action="@{/register_new_user}" method="post" id="register">
+<div class="col-xs-8 col-sm-8 col-xs-offset-1 col-sm-offset-1 form-body">
+
+<div class="form-group"> 
+<input type="text" class="form-control register_input" th:field="*{firstName}"  placeholder="First Name" name="firstName"/><label class="firstName"></label> 
+</div> 
+<p class="input_rules">(2-20 karaktera,samo slova(alphabet))</p>
+<span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+
+<div class="form-group">
+<input type="text" class="form-control register_input" th:field="*{lastName}" placeholder="Last Name" name="lastName"/><label class="lastName"></label>
+</div>
+<p class="input_rules">(2-20 karaktera,samo slova(alphabet))</p>
+<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+
+<div class="form-group">
+<input type="text" class="form-control register_input"  th:field="*{username}" placeholder="Username" name="username"/><label class="username"></label>
+</div>
+<p class="input_rules">(5-20 karaktera,samo slova(alphabet) i brojevi)</p>
+<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+
+<div class="form-group">
+<input type="password" class="form-control register_input" th:field="*{password}"  placeholder="Password" name="password"/><label class="password"></label>
+</div>
+<p class="input_rules">(8-20 karaktera,barem dva broja,barem dva velika i mala slova)</p>
+<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+<div class="form-group">
+<input type="text" class="form-control register_input" th:field="*{email}" placeholder="Email" name="email"/><label class="email"></label>
+</div>
+<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+<p id="registration_message" style="color:blue;font-size:17px;text-align:center;background:#CEDFE2"></p>
+<br/>
+
+<button type="submit" class="btn btn-primary" id="register_button" style="margin-left:80px">
+Registracija
+</button>
+</div>
+
+</form>
+
+      </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<script src="js/register_validation.js"></script>
+</body>
+</html>

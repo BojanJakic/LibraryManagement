@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+<title>Insert title here</title>
+</head>
+<body>
+<div th:fragment="user_navbar">
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pretrazi Knjige
+  <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+     <li class="ajaxCall" id="book_by_author"><a href="#">Po autoru</a></li>
+     <li class="ajaxCall" id="book_by_title"><a href="#">Po Nazivu knjige</a></li>
+     <li onclick="ajaxRequest(this.id)" id="available_books"><a href="#">Dostupne</a></li> 
+     <li onclick="ajaxRequest(this.id)" id="all_books"><a href="#">Sve</a></li> 
+      </ul>
+</li>
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+Rezervisi Knjigu<span class="caret"></span>
+</a>
+<ul class="dropdown-menu">
+<li class="ajaxCall" id="book_by_title_reservation"><a href="#">Po Naslovu</a></li>
+<li onclick="ajaxRequest(this.id)" id="show_available_books"><a href="#">Prikazi Sve Dostupne</a></li>
+</ul>
+</li>
+<li onclick="ajaxRequest(this.id)" id="show_reserved_books"><a href="#">Moje Rezervacije</a></li>
+</ul>
+<ul class="nav navbar-nav pull-right">
+<li><a href="#" th:href="@{/logout}">Logout</a></li>
+</ul>
+</div>
+</nav>
+</div>
+</body>
+</html>

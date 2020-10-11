@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<div th:fragment="book_by_title">
+<form class="form-inline" id="find_by_book_title">
+<div class="form-group">
+<input class="form-control" placeholder="IME KNJIGE" name="book_title"/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</div>
+</form>
+</div>
+<div th:fragment="book_by_author">
+<form role="form" action="#" class="form-inline" id="find_by_author">
+<div class="form-group">
+<input class="form-control" placeholder="IME AUTORA" name="author_firstname"/>
+<input class="form-control" placeholder="PREZIME AUTORA" name="author_lastname "/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</div>
+</form>
+</div>
+
+<div th:fragment="user_by_username">
+<form role="form" action="#" class="form-inline" id="find_by_username">
+<input class="form-control" placeholder="KORISNICKO IME"/> 
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div> 
+
+<div th:fragment="user_by_fullname">
+<form role="form" action="#" class="form-inline" id="find_by_fullname">
+<input class="form-control" placeholder="IME KORISNIKA"/>
+<input class="form-control" placeholder="PREZIME KORISNIKA"/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div>
+
+<div th:fragment="user_by_id">
+<form action="#" role="form" class="form-inline" id="find_by_id">
+<input class="form-control" placeholder="KORISNICKI ID"/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div>
+
+<div th:fragment="book_by_title_reservation">
+<form action="#" role="form" class="form-inline" id="reserve_book">
+<input class="form-control" placeholder="NASLOV KNJIGE"/>
+<button type="submit" class="btn btn-primary  ajax_request">Rezervisi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div>
+
+<div th:fragment="reservation_by_username">
+<form action="#" role="form" class="form-inline" id="username_reservation">
+<input class="form-control" placeholder="KORISNICKO IME"/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div>
+
+<div th:fragment="reservation_by_fullname">
+<form action="#" role="form" class="form-inline" id="fullname_reservation">
+<input class="form-control" placeholder="IME"/>
+<input class="form-control" placeholder="PREZIME"/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div>
+
+<div th:fragment="reservation_by_title">
+<form action="#" role="form" class="form-inline" id="title_reservation">
+<input class="form-control" placeholder="NAZIV KNJIGE"/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div>
+
+<div th:fragment="reservation_by_author">
+<form action="#" role="form" class="form-inline" id="author_reservation">
+<input class="form-control" placeholder="IME PISCA"/>
+<input class="form-control" placeholder="PREZIME PISCA"/>
+<button type="submit" class="btn btn-primary  ajax_request">Trazi&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+</form>
+</div>
+<div th:fragment="cancel_reservation">
+<form role="form" class="form-inline" id="delete_reservation">
+<input class="form-control" placeholder="ID KORISNIKA" name="userId"/>
+<input class="form-control" placeholder="IME KNJIGE" name="title"/>
+<button class="btn btn-primary ajax_delete_request" type="submit">Obrisi Rezervaciju</button>
+</form>
+</div>
+
+<div th:fragment="delete_user">
+<form role="form" class="form-inline" id="remove_user">
+<input class="form-control" placeholder="ID KORISNIKA" name="userId"/>
+<button class="btn btn-primary ajax_request" type="submit">Obrisi Korisnika</button>
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+th{
+	background:#190303;
+	color:white;
+	text-align:center;
+}
+
+tr:nth-child(odd) {
+    background: white;
+    text-align:center;
+    font-style: italic;
+/*     font-family:fantasy; */
+}
+
+tr:nth-child(even) {
+/*     font-family:fantasy; */
+    text-align:center;
+    background: #CCDDEA;
+    font-style: italic;
+}
+
+table{
+	margin-right:15px !important;
+}

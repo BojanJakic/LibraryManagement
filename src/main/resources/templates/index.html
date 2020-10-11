@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:name="_csrf.parameterName" th:content="${_csrf.token}"/>
+<!-- <meta name="_csrf_header" content="${_csrf.headerName}"/> -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/login_style.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/registration_style.css}" />
+
+<title>Insert title here</title>
+<style>
+.reg {
+	margin-left: 10px;
+}
+
+#register label {
+	font-size: 15px;
+	margin-left: 5px;
+	display: inline !important;
+}
+
+
+</style>
+</head>
+<body th:onload="${loginError}? 'showLoginAfterRefresh()'">
+	<div th:include="fragment/header :: header"></div>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav">
+				<li><a href="#">TEL: XXX/XXX-XXX</a></li>
+				<li><a href="#">E-mail: xxx@xxx.com</a></li>
+			</ul>
+			<ul class="nav navbar-nav pull-right">
+				<li id="newuser"><a href="#">Registracija</a></li>
+				<li id="dropdown_parent" class="dropdown">
+				<a href="#" id="menuLogin" class="dropdown-toggle" data-toggle="dropdown">Login
+					<span class="caret"></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right login_container">
+						<form action="#" th:action="@{/log}" method="post">
+                        <input style="width:280px !important" class="form-control" type="text" placeholder="Username" name="username" />
+						
+						<input style="width:280px !important" type="password" class="form-control" placeholder="Password" name="password" />
+						
+						<p id="errorMessage" th:if="${loginError}">
+						<span style="font-size:12px;margin-left:30px;color:red">Neispravno korisnicko ime ili lozinka ili neaktivan racun<br/></span>
+						</p>
+					   <input style="margin-left:30px;margin-top:20px" type="checkbox" name="remember-me"/><span style="margin-left:10px;margin-right:15px">Zapamti Me?</span>
+					   
+					   <br/>
+					   
+					   <button id="login_button" type="submit" class="btn btn-info">Login</button>
+
+						</form>
+					</div>
+ 				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div th:include="fragment/user_registration_user :: modal"></div>
+	<div class="row" id="middle">
+		<div class="col-md-2 left_column"></div>
+		<div id="middle-middle" class="col-md-8">
+			<div th:include="fragment/carousel :: carousel"></div>
+			<br />
+			<br />
+			<div>
+				<h1
+					style="margin-left: 180px; font-style: oblique; text-decoration: underline">DOBRODOŠLI
+					!</h1>
+					
+				<br />
+				<p id="description">
+					<strong> Text text text text text text text text text text
+						text Text text text text text text text text text text text Text
+						text text text text text text text text text text Text text text
+						text text text text text text text text Text text text text text
+						text text text text text text Text text text text text text text
+						text text text text Text text text text text text text text text
+						text text Text text text text text text text text text text text
+						Text text text text text text text text text text text Text text
+						text text text text text text text text text Text text text text
+						text text text text text text text Text text text text text text
+						text text text text text Text text text text text text text text
+						text text text Text text text text text text text text text text
+						text Text text text text text text text text text text text Text
+						text text text text text text text text text text Text text text
+						text text text text text text text text </strong>
+				</p>
+			</div>
+		</div>
+		<div class="col-md-2 right_column"></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8"></div>
+		<div class="col-md-2"></div>
+	</div>
+
+	<script src="js/register_validation.js"></script>
+	<script>
+		$("#newuser").click(function() {
+			$("#basicModal").modal();
+		})
+
+		$("#basicModal").on('hidden.bs.modal',function() {
+			$(this).find('form').trigger('reset');
+			$(this).find('form input').removeClass('wrong correct');
+			$(this).find("form label").removeClass("glyphicon glyphicon-remove glyphicon glyphicon-ok")
+            $("#registration_message").text("");
+		})
+						
+		
+  		function showLoginAfterRefresh(){
+  			$("#menuLogin").dropdown("toggle");
+        }
+		
+		$("#dropdown_parent").on("hide.bs.dropdown",function(){
+			
+			$("#errorMessage").text("");
+		})
+		
+</script>
+</body>
+</html>

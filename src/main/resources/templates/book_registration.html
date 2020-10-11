@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+<title>Insert title here</title>
+</head>
+<body>
+<div th:include="fragment/header :: header"></div>
+<!-- <div align="center"> -->
+<form class="new_book" action="#" th:action="@{/addBook}" style="margin-left:270px;margin-top:50px">
+<div class="col-xs-4 col-sm-4 col-xs-offset-1 col-sm-offset-1 form-body">
+<div  class="form-group">
+<input type="text" placeholder="Naslov knjige" class="form-control" name="title" th:value="*{newBook.title}"/>
+<span th:if="${#fields.hasErrors('newBook.title')}" th:errors="*{newBook.title}"></span>
+</div>
+
+<div class="form-group">
+<input type="text" placeholder="Broj primjeraka" class="form-control" name="count"/>
+</div>
+
+<div class="form-group">
+<input type="text" placeholder="Ime pisca" class="form-control" name="firstName" th:value="*{author.firstName}"/>
+<span th:if="${#fields.hasErrors('author.firstName')}" th:errors="*{author.firstName}"></span>
+</div>
+
+<div class="form-group">
+<input type="text" placeholder="Prezime pisca" class="form-control" name="lastName" th:value="*{author.lastName}"/>
+<span th:if="${#fields.hasErrors('author.lastName')}" th:errors="*{author.lastName}"></span>
+</div>
+<p th:if="${message}" class="bg-success text-success" style="text-align:center">
+Knjiga je registrovana!
+</p>
+<button type="submit" class="btn btn-primary" style="margin:0 auto !important">Registruj Knjigu</button>
+</div>
+</form>
+<!-- </div> -->
+
+
+</body>
+</html>

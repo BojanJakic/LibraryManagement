@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.carousel-inner > .item > img{
+height:170px;
+width:660px;
+}
+
+.left_column{
+background:linear-gradient(to right, #777779 , white);	
+height:600px;
+}
+.right_column{
+background:linear-gradient(to left, #777779 , white);	
+height:600px;
+}

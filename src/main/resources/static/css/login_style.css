@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.login_container
+{
+width:350px;
+height:230px;
+/* margin-left:30px; */
+
+
+}
+#login_button{
+	width:120px !important;
+	margin-left:120px;
+	margin-top:20px;
+}
+.login_container input{
+	margin-top:10px;
+	margin-left:30px;
+}
+
+	

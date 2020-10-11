@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+.header{
+background: linear-gradient(#F1EDF5,#777779, #F7F5F9);
+text-align:center;
+font-family:"Times New Roman", Georgia, Serif;
+font-style: oblique;
+text-shadow:1px 0 0 white,
+            0 1px 0 white,
+            0 0 2px white;
+height:130px !important;
+
+}
+
+.footer{
+width:100%;
+background:linear-gradient(white,#777779,white);
+height:100px;
+position:fixed;
+bottom :0px;
+}
+
+.header_title{
+vertical-align: middle;
+font-size:55px;
+text-align:center;
+line-height: 130px;  
+}
+
+
+
+#register{
+
+height:330px;
+margin-top:20px;
+margin-left:40px;
+	
+}
